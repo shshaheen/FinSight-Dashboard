@@ -13,8 +13,8 @@ import {
 
 const BalanceChart = ({ data }) => {
   return (
-    <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm h-[400px]">
-      <h3 className="text-lg font-bold text-gray-800 mb-6">Balance Trend</h3>
+    <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm h-[400px] transition-colors">
+      <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-6">Balance Trend</h3>
       <div className="w-full h-full pb-8">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
@@ -24,17 +24,17 @@ const BalanceChart = ({ data }) => {
                 <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--chart-grid)" />
             <XAxis 
               dataKey="date" 
               axisLine={false} 
               tickLine={false} 
-              tick={{ fill: '#94a3b8', fontSize: 12 }}
+              tick={{ fill: 'var(--chart-text)', fontSize: 12 }}
             />
             <YAxis 
               axisLine={false} 
               tickLine={false} 
-              tick={{ fill: '#94a3b8', fontSize: 12 }}
+              tick={{ fill: 'var(--chart-text)', fontSize: 12 }}
               tickFormatter={(value) => `$${value}`}
             />
             <Tooltip 
@@ -42,7 +42,10 @@ const BalanceChart = ({ data }) => {
                 borderRadius: '12px', 
                 border: 'none', 
                 boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
-                padding: '12px'
+                padding: '12px',
+                backgroundColor: 'var(--chart-tooltip-bg)',
+                color: 'var(--chart-tooltip-text)',
+                backdropFilter: 'blur(8px)'
               }}
             />
             <Area 

@@ -15,8 +15,8 @@ const COLORS = [
 
 const CategoryChart = ({ data }) => {
   return (
-    <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm h-[400px]">
-      <h3 className="text-lg font-bold text-gray-800 mb-6">Spending Breakdown</h3>
+    <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm h-[400px] transition-colors">
+      <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-6">Spending Breakdown</h3>
       <div className="w-full h-full pb-8">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
@@ -41,7 +41,10 @@ const CategoryChart = ({ data }) => {
                 borderRadius: '12px', 
                 border: 'none', 
                 boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
-                padding: '12px'
+                padding: '12px',
+                backgroundColor: 'var(--chart-tooltip-bg)',
+                color: 'var(--chart-tooltip-text)',
+                backdropFilter: 'blur(8px)'
               }}
             />
             <Legend 

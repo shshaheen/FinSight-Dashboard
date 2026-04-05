@@ -29,14 +29,14 @@ const SummaryCards = ({ totalBalance, totalIncome, totalExpenses }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
       {cards.map((card, idx) => (
-        <div key={idx} className={`${card.bgColor} p-6 rounded-2xl border border-white/50 shadow-sm flex items-center justify-between`}>
+        <div key={idx} className={`${card.bgColor} dark:bg-slate-900/50 p-6 rounded-2xl border border-white/50 dark:border-slate-800 shadow-sm flex items-center justify-between transition-colors`}>
           <div>
-            <p className="text-sm font-medium text-gray-500 mb-1">{card.title}</p>
-            <h3 className={`text-2xl font-bold ${card.textColor}`}>
+            <p className="text-sm font-medium text-gray-500 dark:text-slate-400 mb-1">{card.title}</p>
+            <h3 className={`text-2xl font-bold ${card.textColor} dark:text-white`}>
               ${card.amount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </h3>
           </div>
-          <div className="p-3 bg-white/80 rounded-full shadow-inner">
+          <div className="p-3 bg-white/80 dark:bg-slate-800/80 rounded-full shadow-inner">
             {card.icon}
           </div>
         </div>
